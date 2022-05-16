@@ -1,0 +1,77 @@
+.TodoItem{
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      padding-left: 24px;
+      width: calc(100% - 24px);
+      height: 64px;
+      background-color: #fff;
+      border-bottom: 1px solid #E3E4F1;
+      position: relative;
+}
+.TodoItem .checked{
+      height: 24px;
+}
+.TodoItem .checked .checkbox{
+      display: block;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      cursor: pointer;
+      background: #FFFFFF;
+      border: 1px solid #E3E4F1;
+}
+.TodoItem .checked .checked_item-hover:hover{
+      border-color: transparent;
+      background-image: url(./Oval.svg);
+      background-size: cover;
+      background-repeat: no-repeat;
+}
+.TodoItem .checked .checked_item{
+      border-color: transparent;
+      background-image: url(./checked.svg);
+      background-size: cover;
+      background-repeat: no-repeat;
+}
+.TodoItem .checked .checked_item :hover{
+      border-color: transparent;
+      background-image: url(./checked.svg);
+      background-size: cover;
+      background-repeat: no-repeat;
+      cursor: pointer;
+}
+.TodoItem .checked input{
+      display: none;
+      width: 24px;
+      height: 24px;
+}
+
+.TodoItem .todo__text{
+      width: 80%;
+      margin-left: 24px;
+      margin-top: 3px;
+      font-family: 'Josefin Sans';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 18px;
+      letter-spacing: -0.25px;
+      /* text-decoration-line: line-through; */
+      color: #494C6B;
+}
+.TodoItem .delete{
+      position: absolute;
+      right: 24px;
+      top: calc(50% - 9px);
+      width: 18px;
+      height: 18px;
+      background-image: url(./close.svg);
+      cursor: pointer;
+      opacity: 0;
+      transition: .2s;
+}
+
+.TodoItem:hover .delete{
+      opacity: 1;
+      transition: .2s;
+}

@@ -1,0 +1,39 @@
+.TodoFooter{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: calc(100% - 48px);
+      height: 50px;
+      padding: 0 24px;
+      border-radius: 0 0 5px 5px;
+      font-family: 'Josefin Sans';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 14px;
+      letter-spacing: -0.194444px;
+      color: #9495A5;
+}
+.TodoFooter .todo__sort{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 166px;
+
+}
+
+.TodoFooter .todo__sort li{
+      list-style-type: none;
+      cursor: pointer;
+      font-weight: 700;
+}
+.TodoFooter .todo__sort li:hover{
+      color: #494C6B;
+}
+.TodoFooter .todo__sort .active-todo{
+      color: #3A7CFD;
+}
+.TodoFooter .clear__completed:hover{
+      cursor: pointer;
+      color: #494C6B;
+}

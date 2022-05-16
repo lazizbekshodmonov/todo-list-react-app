@@ -1,0 +1,19 @@
+.Header{
+      position: absolute;
+      top: 0;
+      z-index: -1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 300px;
+      overflow: hidden;
+      background: linear-gradient(225deg, #5596FF 0%, #AC2DEB 100%);
+      
+}
+.Header .image{
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+}

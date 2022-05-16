@@ -1,0 +1,15 @@
+.Main{
+      width: 540px;
+      margin-top: 70px;
+}
+.Main  .footer__text{
+      margin-top: 50px;
+      font-family: 'Josefin Sans';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 14px;
+      text-align: center;
+      letter-spacing: -0.194444px;
+      color: #9495A5;
+}

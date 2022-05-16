@@ -1,18 +1,17 @@
 import React from 'react';
 import TodoItem from '../TodoItem/TodoItem'
 import './TodoList.css'
-function TodoList() {
-      // let todoItem = data.map((item) => {
+function TodoList({data, setTodolist}) {
+      let todoItem = data.map((item) => {
             
-      //       const {...itemProps} = item;
-
-      //       return(
-      //             <TodoItem key={item.id} {...itemProps}/> 
-      //       )
-      // })
+            const {...itemProps} = item;
+            return(
+                  <TodoItem key={item.id} data={itemProps} setTodolist={setTodolist}/> 
+            )
+      })
       return (
             <div className='TodoList'>
-                  <TodoItem />
+                  {todoItem}
             </div>
       );
       

@@ -25,26 +25,35 @@ const App = () => {
     const citySnapshot = await getDocs(citiesCol);
     const cityList = citySnapshot.docs.map(doc => doc.data());
    
-    return cityList
+   return cityList; 
   
   }
   
-  const [todolist, setTodolis] = useState([])
+  const [todolist, setTodolist] = useState([])
   useEffect(()=>{
-    getCities().then((data) => setTodolis(data))
-  }, [])
-  console.log(todolist);
+    getCities().then((data) => setTodolist(data))
+  }, []);
+
+   const setData = (id) =>{
+     setTodolist(({data}) =>{
+        
+       
+     })
+   }
+
+   
   
-  // if(todolist.length !== 0){
+  if(todolist.length !== 0){
+    return (
+      <div className="App">
+              < Header />
+              <Main data={todolist} setTodolist={setData}/>
+          </div>
+  );
     
-    
-  // }
-  return (
-    <div className="App">
-            < Header />
-            <Main />
-        </div>
-);
+  }
+  
+  
 };
 
 export default App;

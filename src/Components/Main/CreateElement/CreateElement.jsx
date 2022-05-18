@@ -6,8 +6,6 @@ function CreateElement({addNewTodo}) {
             if(todoText !== ''){
                   addNewTodo(todoText)
                   setTodotext('')
-            }else{
-                  alert('Pashol naxxuy!')
             }
             
       }

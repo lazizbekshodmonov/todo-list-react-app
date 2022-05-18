@@ -59,6 +59,10 @@
       /* text-decoration-line: line-through; */
       color: #494C6B;
 }
+.TodoItem .checked__text{
+      text-decoration-line: line-through;
+      color: #D1D2DA;
+}
 .TodoItem .delete{
       position: absolute;
       right: 24px;

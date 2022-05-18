@@ -1,12 +1,26 @@
 import React from 'react';
 import TodoItem from '../TodoItem/TodoItem'
 import './TodoList.css'
-function TodoList({data, setTodolist}) {
+function TodoList(props) {
+      
+      const {data, setTodolist, setfirebase, deleteData} = props.props;
+
       let todoItem = data.map((item) => {
             
-            const {...itemProps} = item;
+            const {id, ...itemProps} = item;
             return(
-                  <TodoItem key={item.id} data={itemProps} setTodolist={setTodolist}/> 
+                  <TodoItem key={id}
+                              {...itemProps} 
+                              setTodolist={() => {
+                                    setTodolist(id) 
+                                    setfirebase(id)
+                                    }
+                              }
+                              deleteData={() =>{
+                                    deleteData(id)
+                              }}
+                              
+                  /> 
             )
       })
       return (

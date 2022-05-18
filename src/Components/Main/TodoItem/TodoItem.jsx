@@ -1,29 +1,37 @@
 import React from 'react';
 import './TodoItem.css'
-function TodoItem({data, setTodolist}) {
-      console.log(data);
-      let checked;
-      if(data.check){
+function TodoItem({id, todotext, check, setTodolist, deleteData}) {
+     //{id, todotext, check, setTodolist}
+      // console.log(props);
+      
+      let checked, checkedText;
+      if(check){
             checked = ' checked_item'
+            checkedText = ' checked__text'
       }else{
             checked = ' checked_item-hover'
+            checkedText = ' '
       }
-      // const setData = () =>{
-      //       setTodolist(id);
-      // }
+      
       return (
             <div className='TodoItem'>
                   <div className="checked">
                         <input type="checkbox" 
-                        // onChange={setData}
-                               id={data.id}/>
-                        <label htmlFor={data.id}
-                               className= {'checkbox' + checked}>
                               
+                               id={id}/>
+                        <label htmlFor={id}
+                              onClick={() => {
+                                    setTodolist()
+                              }}
+                              
+                               className= {'checkbox' + checked}>
+                               
                         </label>
                   </div>
-                  <p className="todo__text">{data.todotext}</p>
-                  <div className="delete"></div>
+                  <p className={"todo__text" + checkedText}>{todotext}</p>
+                  <div className="delete"
+                        onClick={deleteData}
+                  ></div>
             </div>
       );
 }

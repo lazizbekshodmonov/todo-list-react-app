@@ -2,10 +2,10 @@ import React from 'react';
 import TodoList from '../TodoList/TodoList'
 import TodoFooter from '../TodoFooter/TodoFooter'
 import './TodoContent.css'
-function TodoContent({data, setTodolist}) {
+function TodoContent(props) {
       return (
             <div className='TodoContent'>
-                <TodoList data={data} setTodolist={setTodolist}/> 
+                <TodoList props={props}/> 
                 <TodoFooter />
             </div>
       );

@@ -1,17 +1,34 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './CreateElement.css'
-function CreateElement() {
+function CreateElement({addNewTodo}) {
+       const [todoText, setTodotext] = useState('');
+      function addTodo(){
+            if(todoText !== ''){
+                  addNewTodo(todoText)
+                  setTodotext('')
+            }else{
+                  alert('Pashol naxxuy!')
+            }
+            
+      }
+      
       return (
             
-            <div className='CreateElement'>
-                  <button 
-                         className='create__element__btn'>
+            
+            <form className='CreateElement' onSubmitCapture={(e) => {e.preventDefault();}}>
+                  <button type='submit'
+                         className='create__element__btn'
+                         onClick={addTodo}
+                         >    
                   </button>
                   
                   <input type="text" 
                          className='input' 
+                         value={todoText}
+                         onChange={(e) => setTodotext(e.target.value)}
                          placeholder='Create a new todo…'/>
-            </div>
+            </form>
+           
             
       );}
 

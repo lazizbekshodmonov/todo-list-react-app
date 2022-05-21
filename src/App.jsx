@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import Main from './Components/Main/Main';
 import Header from './Components/Header/Header';
+import LoaderComponent from './Loader';
 import {useEffect, useState} from 'react'
 import { initializeApp } from "firebase/app";
 import { getDocs, getFirestore, collection, setDoc, doc, deleteDoc} from "firebase/firestore";
@@ -20,21 +21,24 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 function App() {
+  const [loader, setLoader] = useState(false)
+
   async function getCities() {
+    setLoader(true)
     const citiesCol = collection(db, 'todocontent');
     const citySnapshot = await getDocs(citiesCol);
     const cityList = citySnapshot.docs.map(doc => doc.data());
-
+    setLoader(false)
     return cityList;
 
   }
-
+  
   const [todolist, setTodolist] = useState([]);
   useEffect(() => {
 
     getCities().then((data) => setTodolist(data));
-
-  }, [todolist]);
+    
+  }, []);
 
   
 
@@ -82,21 +86,26 @@ function App() {
     object.check = !object.check
     const newData = doc(db, "todocontent", id);
     await setDoc(newData, object);
-    
+    setTodolist(todolist)
   }
 
 //--------------------------------------------------------------------------------------------------------------------
 
-  // if (todolist.length !== 0) {
-    return (
+          
+         
+    return loader ? <LoaderComponent /> : (
       <div className="App">
         <Header />
-        <Main data={todolist} setTodolist={setData} setfirebase={setFirebase} addNewTodo={addNewTodo} deleteData={deleteData}/>
+        <Main data={todolist}
+              setTodolist={setData} 
+              setfirebase={setFirebase} 
+              addNewTodo={addNewTodo} 
+              deleteData={deleteData}
+              // todoSort={todoSort}
+              />
+              
       </div>
     );
-
-  // }
-
 
 }
 
